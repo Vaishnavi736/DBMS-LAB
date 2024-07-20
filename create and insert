@@ -1,0 +1,30 @@
+\\
+create table scholars(regno number(5) primary key,name varchar(20),branch varchar(5) unique , section varchar(5) unique ,perc number(5,2));
+insert into scholars values(736,'Aadhya','CSE','C',80.9);
+insert into scholars values(737,'Rishab','AIDS','A',72.7);
+insert into scholars values(738,'Siddharth','AIML','B',74.6);
+insert into scholars values(739,'Nidhi','ECE','C',69.9);
+insert into scholars values(740,'Asmara','IT','D',78.6);
+insert into scholars values(741,'Abhi','EEE','D',77.6);
+delete from scholars where regno = 741 ;
+select *
+from scholars
+\\
+create table scholar(regno number(5),name varchar(20),branch varchar(5),section varchar(5),perc number(5,2));
+insert into scholar values(736,"Aadhya","CSE","C",80.9);
+insert into scholar values(737,"Rishab","AIDS","A",72.7);
+insert into scholar values(738,"Siddharth","AIML","B",74.6);
+insert into scholar values(739,"Nidhi","ECE","C",69.9);
+insert into scholar values(740,"Asmara","IT","D",78.6);
+SELECT *
+FROM scholardet
+
+
+
+
+update scholar set email = 'asma@gmail.com' where regno = 740;
+delete from scholar where regno = 739;
+alter table scholar drop column email;
+alter table scholar modify section varchar(3); 
+select *
+from scholar;
