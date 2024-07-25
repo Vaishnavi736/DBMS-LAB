@@ -28,3 +28,31 @@ alter table scholar drop column email;
 alter table scholar modify section varchar(3); 
 select *
 from scholar;
+//
+create table scholars(regno number(5) primary key,name varchar(20),branch varchar(5) unique,sec char(1),perc number(5,2),foreign key(sec) references divisions);
+insert into scholars values(736,'Aadhya','CSE','C',80.9);
+insert into scholars values(737,'Rishab','AIDS','A',72.7);
+insert into scholars values(738,'Siddharth','AIML','B',74.6);
+insert into scholars values(739,'Abhi','CSBS','F',67.9);
+select *
+from scholars
+
+//
+create table Divisions(sec char(1) primary key,capacity number(2));
+
+insert into Divisions values('A',15);
+insert into Divisions values('B',12);
+insert into Divisions values('C',10);
+insert into Divisions values('D',7);
+insert into Divisions values('E',3);
+select *
+from Divisions;
+//
+create table sales(costume varchar(8) not null,ordered number(2),sold number(3));
+insert into sales values('kurta',72,65);
+insert into sales values('jeans',45,19);
+insert into sales values('saree',85,80);
+select *
+from sales
+
+
