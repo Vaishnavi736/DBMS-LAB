@@ -54,5 +54,31 @@ insert into sales values('jeans',45,19);
 insert into sales values('saree',85,80);
 select *
 from sales
+//
+insert into scholar values(736,'Aadhya','CSE','C',80.9);
+insert into scholar values(737,'Rishab','AIDS','A',72.7);
+insert into scholar values(738,'Siddharth',"AIML","B",74.6);
+insert into scholar values(740,'Asmara','IT','D',78.6);
+SELECT *
+FROM scholar;
+//
+create table scholar(regno number(5),name varchar(20),branch varchar(5),section varchar(5),perc number(5,2));
+insert into scholar values(736,"Aadhya","CSE","C",80.9);
+insert into scholar values(736,'Aadhya','CSE','C',80.9);
+insert into scholar values(737,'Rishab','AIDS','A',72.7);
+insert into scholar values(738,'Siddharth','AIML','B',74.6);
+insert into scholar values(740,'Asmara','IT','D',78.6);
+SELECT *
+FROM scholar;
+//pattern matching
+SELECT name
+FROM scholar
+where name like 'S%'
+
+
+
+
+
+
 
 
