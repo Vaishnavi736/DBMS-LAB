@@ -1,4 +1,4 @@
-create table Sailors(sid number(2),sname varchar(10),rating number(2),age number(3,1));
+create table Sailors(sid number(2) primary key,sname varchar(10),rating number(2),age number(3,1));
 insert into Sailors values(22,'Dustin',7,15.0);
 insert into Sailors values(29,'Brutus',1,33.0);
 insert into Sailors values(31,'Lubber',8,55.5);
