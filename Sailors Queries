@@ -15,6 +15,21 @@ insert into Boats(101,'Interlake','blue');
 insert into Boats(102,'Interlake','red');
 insert into Boats(103,'Clipper','green');
 insert into Boats(104,'Marine','red');
+//
+create table Reserves(sid number(3),bid number(5),day date,foreign key(sid) references Sailors,foreign key(bid) references Boats);
+insert into Reserves values(22,101,to_date('10-10-98','dd-mm-yy'));
+insert into Reserves values(22,101,to_date('10-10-98','dd-mm-yy'));
+insert into Reserves values(22,101,to_date('10-8-98','dd-mm-yy'));
+insert into Reserves values(22,101,to_date('10-7-98','dd-mm-yy'));
+insert into Reserves values(31,101,to_date('11-10-98','dd-mm-yy'));
+insert into Reserves values(31,101,to_date('11-06-98','dd-mm-yy'));
+insert into Reserves values(31,101,to_date('11-12-98','dd-mm-yy'));
+insert into Reserves values(31,101,to_date('9-5-98','dd-mm-yy'));
+insert into Reserves values(64,101,to_date('9-8-98','dd-mm-yy'));
+insert into Reserves values(64,101,to_date('9-8-98','dd-mm-yy'));
+select *
+from Reserves
+
 
 
 
