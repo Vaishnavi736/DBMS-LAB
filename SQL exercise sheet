@@ -103,5 +103,35 @@ create table emp1 as (select *
                       from emp
                       where deptno=10)
 select * from emp1
+39) Display all the records for deptno which belongs to employee name JAMES
+select *
+from emp 
+where deptno in (select deptno
+                 from emp
+                 where ename='JAMES');
+40) Display all the records in emp table where salary should be less than or equal to ADAMS salary
+select *
+from emp
+where sal <= (select sal from emp where ename='ADAMS')
+41) Display all subordinate those who are working under BLAKE
+select ename
+from emp
+where MGR=7698
+43) Display ename, sal, grade, dname, loc for each employee.'
+select ename,sal,dname,loc
+from emp natural join dept
+44) Display all employee whose location is DALLAS
+select ename
+from emp natural join dept
+where loc='DALLAS'
+45) Delete emp records for detpno 10 and 20.
+delete from emp 
+where deptno=10 or deptno=20
+select *
+from emp
+46) Delete all employees those are not getting any commission.
+delete from emp where comm is null
+select * from emp
+
                           
                           
