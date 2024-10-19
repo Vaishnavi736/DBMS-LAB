@@ -25,66 +25,119 @@ insert into emp values(7844, 'TURNER', 'SALESMAN', 7698, to_date('8-9-1981','dd-
 insert into emp values(7876, 'ADAMS', 'CLERK', 7788, to_date('13-7-1987', 'dd-mm-yyyy'), 1100, null, 20);
 insert into emp values(7900, 'JAMES', 'CLERK', 7698, to_date('3-12-1981','dd-mm-yyyy'), 950, null, 30);
 insert into emp values(7934, 'MILLER', 'CLERK', 7782, to_date('23-1-1982','dd-mm-yyyy'),1300, null, 10);
-//1
+1 to 16(6,8,9,12,13,15)
+1) Display all the records in emp table.
 select *
 from emp;
-select *
-from dept;
-//2
+2) Display all the records in emp table where employee belongs to deptno 10.
 select *
 from emp
 where deptno=10;
-//3
-
+3) Display all the records in emp table where employee does not belong to deptno 30.
 select *
 from emp
 where deptno<>30;
-//4
+4) Display total number of records in Emp table.
 select count(*)
-from emp;
-
-//5
+ from emp;
+5) Display emp table with salary descending order
 select *
 from emp
 ORDER BY sal desc
-//6
-select *
-from emp
-where JOB='PRESIDENT' OR JOB ='MANAGER' OR JOB = 'ANALYST';
-//7
+*********6) Display first five records in employee table
+              select *
+              from emp
+              where JOB='PRESIDENT' OR JOB ='MANAGER' OR JOB = 'ANALYST';
 
+7) Display all the records in emp table order by ascending deptno, descending salary.
 select *
 from emp
 order by deptno asc;
 select * from emp
 order by sal desc;
-//10
+10) Display the records in emp table where MGR in 7698,7566 and sal should be greater then
+1500
 
 select *
 from emp
 where sal>1500 and mgr=7698 or mgr=7566;
-//11
+11)Display all employees where their salary is less then the Ford’s salary
 select ename
 from emp
 where sal < (select sal from emp where ename= 'FORD')
-//14
+14) Display distinct job from emp table
 select job
 from emp
 group by job;
-//15
-
-select ename
-from emp
-where ename like 'J%' or ename like 'A%' or ename like 'M%';
-//16
-
+************15) Write a query that displays the employee’s names with the first letter capitalized and all other
+letters lowercase for all employees whose name starts with J, A, or M.
+       select ename
+        from emp
+        where ename like 'J%' or ename like 'A%' or ename like 'M%';
+16) Write a query to display the employee name, department name of all employees who earn a
+commission.
 select ename,deptno
 from emp
 where comm IS NOT NULL;
-//31
+
+17 to 46 (27,35,36,38,42)
+17) Display the empno, ename, sal, and salary increased by 15%
+    select empno,ename,sal,sal+sal*0.15 AS increased_sal
+    from emp
+18) Display employee names and corresponding manager names 
+SELECT  e.ename AS employee_name,m.ename AS manager_name
+FROM emp e LEFT JOIN emp m ON e.mgr = m.empno;
+19)Display all the departments where employee salary greater than average salary of that
+department
+SELECT d.deptno,d.dname,d.loc
+FROM dept d INNER JOIN emp e ON d.deptno = e.deptno
+GROUP BY d.deptno, d.dname, d.loc
+HAVING MAX(e.sal) > AVG(e.sal);
+20)Display employees where length of ename is 5
+ SELECT ename
+ FROM emp
+ where length(ename)=5
+21)Display all employees where ename start with J and ends with S
+select ename 
+from emp
+where ename like 'J%S'
+22) Display all employees where employee does not belong to 10,20,40
+SELECT ename
+from emp
+where deptno NOT IN (10,20,40)
+23) Display all employees where jobs does not belong to PRESIDENT and MANAGER
+SELECT ENAME 
+FROM EMP
+WHERE JOB NOT IN ('PRESIDENT','MANAGER')
+24) Display the maximum salary in the emp table
+select max(sal)
+from emp
+25)Display average salary for job SALESMAN
+select avg(sal)
+from emp
+where job = 'SALESMAN'
+26)Display all ename where first character could be anything, but second character should be L.
+select ename
+from emp
+where ename like '_L%'
+27)*********
+28) Display all the departments where department has 3 employees.
+select dname
+from dept natural join emp 
+group by dname
+having count(empno)>=3
+29) Display sum of salary for each department. 
+select deptno,sum(sal)
+from emp
+group by deptno
+30) Display all department with Minimum salary and maximum salary?
+select deptno,min(sal),max(sal)
+from emp
+group by deptno
+31)Display all ename, empno, dname, loc from emp, dept table
 select ename,empno,dname,loc
 from emp natural join dept
-//32Display all the departments where department does not have any employees
+32)Display all the departments where department does not have any employees
 select dname
 from dept
 where deptno NOT in (select distinct deptno
@@ -116,7 +169,7 @@ where sal <= (select sal from emp where ename='ADAMS')
 41) Display all subordinate those who are working under BLAKE
 select ename
 from emp
-where MGR=7698
+where mgr IN(select empno from emp where ename='BLAKE')
 43) Display ename, sal, grade, dname, loc for each employee.'
 select ename,sal,dname,loc
 from emp natural join dept
@@ -126,12 +179,11 @@ from emp natural join dept
 where loc='DALLAS'
 45) Delete emp records for detpno 10 and 20.
 delete from emp 
-where deptno=10 or deptno=20
+where deptno=10 or deptno=20 //
 select *
 from emp
 46) Delete all employees those are not getting any commission.
-delete from emp where comm is null
+delete from emp where comm is null //
 select * from emp
-
-                          
+                      
                           
