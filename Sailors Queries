@@ -11,10 +11,10 @@ insert into Sailors values(85,'Art',3,25.5);
 insert into Sailors values(95,'Bob',3,63.5);
 //
 create table Boats(bid number(3) primary key,bname varchar(10),color varchar(8));
-insert into Boats(101,'Interlake','blue');
-insert into Boats(102,'Interlake','red');
-insert into Boats(103,'Clipper','green');
-insert into Boats(104,'Marine','red');
+insert into Boats values(101,'Interlake','blue');
+insert into Boats values(102,'Interlake','red');
+insert into Boats values(103,'Clipper','green');
+insert into Boats values(104,'Marine','red');
 //
 create table Reserves(sid number(3),bid number(5),day date,foreign key(sid) references Sailors,foreign key(bid) references Boats);
 insert into Reserves values(22,101,to_date('10-10-98','dd-mm-yy'));
